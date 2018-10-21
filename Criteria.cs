@@ -69,7 +69,9 @@ namespace Assym_Crypt_sharp_1
                 for (int j = 0; j < 256; j++)
                 {
                     double x = niu[i, j] * niu[i, j];
-                    chi += x / (niu_1[i] * niu_2[j]);
+                    double y = niu_1[i] * niu_2[j];
+                    if (y != 0)
+                        chi += x / y;
                 }
             }
             int m = (int)(seq.length() / 2);
@@ -117,7 +119,9 @@ namespace Assym_Crypt_sharp_1
                 for (int j = 0; j < r; j++)
                 {
                     double x = niu[i, j] * niu[i, j];
-                    chi += x / (p * m);
+                    double y = p * m;
+                    if(y != 0)
+                        chi += x / y;
                 }
             }
             chi = (chi - 1) * seq.length();

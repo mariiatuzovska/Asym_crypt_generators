@@ -100,7 +100,7 @@ namespace Assym_Crypt_sharp_1
             Hex temp_3 = new Hex();
             temp_1.rand(500);
 
-            Console.WriteLine("See you in time, I'm is process...");
+            Console.WriteLine("See you in time, I'm in process...");
             if (key == "bite")
             {
                 for (int i = 0; i < size; i++)
