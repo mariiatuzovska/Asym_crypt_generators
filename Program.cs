@@ -10,9 +10,11 @@ namespace Assym_Crypt_sharp_1
     {
         static void Main(string[] args)
         {
-            Sequence n = new Sequence(1000);
-            n.L89();
-            n.Show();
+            Sequence n = new Sequence(1000000);
+            n.rand();
+            Criteria criteria = new Criteria("Rand");
+            criteria.Uniformity(n, 10);
+            
             
             Console.ReadKey();
         }

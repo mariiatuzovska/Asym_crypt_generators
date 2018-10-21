@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Compute.cs" />
     <Compile Include="Byte_Sequence.cs" />
+    <Compile Include="Criteria.cs" />
     <Compile Include="Generators.cs" />
     <Compile Include="Hex_algebra.cs" />
     <Compile Include="Hex.cs" />

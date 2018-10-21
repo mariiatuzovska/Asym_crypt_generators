@@ -9,7 +9,7 @@ namespace Assym_Crypt_sharp_1
     class Byte_Sequence
     {
         int size = 0;
-        byte[] byte_number;
+        byte[] byte_number = new byte[500000];
 
         public int length()
         {
@@ -18,6 +18,8 @@ namespace Assym_Crypt_sharp_1
 
         public Byte_Sequence(Sequence sequence)
         {
+            size = sequence.length() / 8;
+
             byte[,] matrix = new byte[256, 8];
             for (int i = 0; i < 256; i++)
             {
@@ -54,7 +56,26 @@ namespace Assym_Crypt_sharp_1
                 }
                 byte_number[i] = s;
             }
+        }
 
+        public byte this[int index]
+        {
+            get
+            {
+                return byte_number[index];
+            }
+            set
+            {
+                byte_number[index] = value;
+            }
+        }
+
+        public void Show()
+        {
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(byte_number[i] + " ");
+            }
         }
     }
 }

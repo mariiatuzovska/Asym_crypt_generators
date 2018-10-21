@@ -90,7 +90,45 @@ namespace Assym_Crypt_sharp_1
             }
         }
 
-        
+        public void BBS(string key)
+        {
+            to_null();
+            Hex m = new Hex("28a3e7acc46898b107825e14da1cc90a07ec439f1ee37943409130e2a59");
+            Hex two = new Hex("2");
+            Hex temp_1 = new Hex();
+            Hex temp_2 = new Hex();
+            Hex temp_3 = new Hex();
+            temp_1.rand(500);
+
+            Console.WriteLine("See you in time, I'm is process...");
+            if (key == "bite")
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    if (i % (size / 100) == 0) { Console.Write(i * 100 / size + "%  "); }
+                    temp_2.copi(temp_1, temp_2);
+                    temp_3.mul(temp_1, temp_2, temp_3);
+                    temp_1.mod(temp_3, m, temp_1);
+                    number[i] = (byte)(temp_1.number[0]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < size / 8; i++)
+                {
+                    if (i % (size / 100) == 0) { Console.Write(i * 100 / size + "%  "); }
+                    temp_2.copi(temp_1, temp_2);
+                    temp_3.mul(temp_1, temp_2, temp_3);
+                    temp_1.mod(temp_3, m, temp_1);
+                    for (int j = 0; j < 8; j++)
+                    {
+                        number[i * 8 + j] = (byte)(temp_1.number[j]);
+                    }
+                }
+            }
+
+            
+        }
 
     }
 }
