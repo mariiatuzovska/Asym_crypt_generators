@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace Assym_Crypt_sharp_1
 {
@@ -128,6 +130,18 @@ namespace Assym_Crypt_sharp_1
             }
 
             
+        }
+
+        public void Librarian()
+        {
+            int i = 0;
+            StreamReader file = new StreamReader(@"C:\Users\Марія Тузовська\source\repos\Assym_Crypt_sharp_1\Assym_Crypt_sharp_1\kant.txt");
+            while (!file.EndOfStream && i < size)
+            {
+                byte s = (byte)(file.Read());
+                number[i] = (byte)(s % 2);
+                i++;
+            }
         }
 
     }

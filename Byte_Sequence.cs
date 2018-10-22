@@ -9,7 +9,7 @@ namespace Assym_Crypt_sharp_1
     class Byte_Sequence
     {
         int size = 0;
-        byte[] byte_number = new byte[500000];
+        byte[] byte_number = new byte[1000000];
 
         public int length()
         {
@@ -18,7 +18,8 @@ namespace Assym_Crypt_sharp_1
 
         public Byte_Sequence(Sequence sequence)
         {
-            size = sequence.length() / 8;
+            size = (int)(sequence.length() / 8);
+            byte_number = new byte[size];
 
             byte[,] matrix = new byte[256, 8];
             for (int i = 0; i < 256; i++)
@@ -47,12 +48,10 @@ namespace Assym_Crypt_sharp_1
                     byte temp = 0;
                     for (int j = 0; j < 8; j++)
                     {
-                        if (sequence[i * 8 + j] == matrix[s, j]) { temp++; }
-                        else
-                            break;
+                        if (sequence[i * 8 + j] != matrix[s, j]) { s++; break; }
+                        else { temp++; }
                     }
                     if (temp == 8) { flag = true; }
-                    s++;
                 }
                 byte_number[i] = s;
             }

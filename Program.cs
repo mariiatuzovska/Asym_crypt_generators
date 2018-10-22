@@ -10,19 +10,26 @@ namespace Assym_Crypt_sharp_1
     {
         static void Main(string[] args)
         {
-            Sequence n = new Sequence(10000);
-            n.BBS("bite");
-            Criteria criteria = new Criteria("BBS bite");
+            //Sequence n = new Sequence(1000000);
+            //n.Librarian();
+            //Criteria criteria = new Criteria("Librarian");
+            //criteria.Equabilyty(n);
+            //criteria.Independence(n);
+            //criteria.Uniformity(n, 10);
+
+            Sequence n = new Sequence(5000000);
+            n.L20();
+            Criteria criteria = new Criteria("L20");
             criteria.Equabilyty(n);
             criteria.Independence(n);
-            criteria.Uniformity(n, 10);
+            criteria.Uniformity(n, 100);
 
             n.to_null();
-            n.BBS("byte");
-            criteria = new Criteria("BBS byte");
+            n.L89();
+            criteria = new Criteria("L89");
             criteria.Equabilyty(n);
             criteria.Independence(n);
-            criteria.Uniformity(n, 10);
+            criteria.Uniformity(n, 100);
 
 
             Console.ReadKey();
