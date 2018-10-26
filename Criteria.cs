@@ -120,7 +120,7 @@ namespace Assym_Crypt_sharp_1
                 {
                     double x = niu[i, j] * niu[i, j];
                     double y = p * m;
-                    if(y != 0)
+                    if (y != 0)
                         chi += x / y;
                 }
             }

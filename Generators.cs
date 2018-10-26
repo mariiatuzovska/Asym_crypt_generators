@@ -136,10 +136,16 @@ namespace Assym_Crypt_sharp_1
         {
             int i = 0;
             StreamReader file = new StreamReader(@"C:\Users\Марія Тузовська\source\repos\Assym_Crypt_sharp_1\Assym_Crypt_sharp_1\kant.txt");
-            while (!file.EndOfStream && i < size)
+            
+            while (!file.EndOfStream && i < size / 8)
             {
-                byte s = (byte)(file.Read());
-                number[i] = (byte)(s % 2);
+                int s = (int)(file.Read());
+                for (int j = 0; j < 8; j++)
+                {
+                    int p = (int)(s >> j);
+                    p = p & 1;
+                    number[i * 8 + j] = (byte)(p);
+                }
                 i++;
             }
         }
